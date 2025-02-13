@@ -1,11 +1,14 @@
 package StepDefs;
 
+import Pages.RegisterPage;
 import cucumber.api.java.en.*;
 
 public class RegistrationStepDef extends Base{
 
+    RegisterPage page;
+
     @Given("^Chrome Browser is opened$")
-    public void chrome_Browser_is_opened() throws InterruptedException {
+    public void chrome_Browser_is_opened() {
         openBrowser();
     }
 
@@ -42,7 +45,7 @@ public class RegistrationStepDef extends Base{
     @Then("^User gets logged in$")
     public void user_gets_logged_in()  {
 
-        closeBrowser();
+        tearDown();
     }
 
 
