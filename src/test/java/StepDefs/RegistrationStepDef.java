@@ -2,11 +2,11 @@ package StepDefs;
 
 import cucumber.api.java.en.*;
 
-public class RegistrationStepDef {
+public class RegistrationStepDef extends Base{
 
     @Given("^Chrome Browser is opened$")
-    public void chrome_Browser_is_opened()  {
-
+    public void chrome_Browser_is_opened() throws InterruptedException {
+        openBrowser();
     }
 
     @Then("^User is On Parabank Website$")
@@ -42,6 +42,7 @@ public class RegistrationStepDef {
     @Then("^User gets logged in$")
     public void user_gets_logged_in()  {
 
+        closeBrowser();
     }
 
 
