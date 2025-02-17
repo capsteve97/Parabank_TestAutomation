@@ -2,22 +2,11 @@ package Pages;
 
 import StepDefs.Base;
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
-
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import java.util.NoSuchElementException;
+import static org.junit.jupiter.api.Assertions.*;
 
 public class RegisterPage extends Base {
-
-    //WebDriver driver;
-
-//    public RegisterPage(WebDriver driver) {
-//        this.driver = driver;
-//    }
 
     static By registerBtn = By.xpath("//a[text()='Register']");
 
@@ -31,8 +20,18 @@ public class RegisterPage extends Base {
     public static void clickRegisterButtonOnHomePg(){
         WebElement registerBtnOnHomePage = driver.findElement(registerBtn);
         waitUntil(registerBtnOnHomePage);
-        TakeScreenshot();
         registerBtnOnHomePage.click();
-        TakeScreenshot();
+        TakeScreenshot("clickRegisterButtonOnHomePg");
+    }
+
+    public static void verifyRegisterButtonPresent() {
+        try {
+            WebElement registerButton = driver.findElement(registerBtn);
+            waitUntil(registerButton);
+            TakeScreenshot("verifyRegisterButtonPresent");
+            assertTrue(registerButton.isDisplayed(), "Register button should be present on the page");
+        } catch (NoSuchElementException e) {
+            assertEquals(false, true, "Register button should be present on the page");
+        }
     }
 }

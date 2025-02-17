@@ -14,17 +14,17 @@ public class RegistrationStepDef extends Base{
 
     @Then("^User is On Parabank Website$")
     public void user_is_On_Parabank_Website() {
-
+        page.verifyHomepage();
     }
 
     @Given("^Register button is present$")
     public void register_button_is_present()  {
-
+        page.verifyRegisterButtonPresent();
     }
 
     @When("^User clicks on it$")
     public void user_clicks_on_it()  {
-
+        page.clickRegisterButtonOnHomePg();
     }
 
     @Then("^Register form gets generated$")
