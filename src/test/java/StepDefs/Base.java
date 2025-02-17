@@ -16,7 +16,7 @@ public class Base {
 
     public static void openBrowser() {
         System.setProperty("webdriver.http.factory", "jdk-http-client");
-        System.setProperty("webdriver.chrome.driver", "C://Users//abanerjee2//Repositories//Parabank_TestAutomation//chromedriver-win64//chromedriver.exe");
+        System.setProperty("webdriver.chrome.driver", "C:\\Users\\HOME\\Parabank\\chromedriver-win64\\chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
         driver.navigate().to("https://parabank.parasoft.com/parabank/index.htm");
@@ -27,13 +27,11 @@ public class Base {
         wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
-    public static void TakeScreenshot(){
+    public static void TakeScreenshot(String fileName){
         // Take screenshot and store it as a file format
         File srcFile = ((TakesScreenshot) driver).getScreenshotAs(OutputType.FILE);
-
         // Define the destination file path
-        File destFile = new File("C:\\Users\\abanerjee2\\Repositories\\Parabank_TestAutomation\\target\\Screenshots\\screenshot.png");
-
+        File destFile = new File("C:\\Users\\HOME\\Parabank\\target\\Screenshots\\"+fileName+".png");
         // Copy the screenshot to the destination file
         try {
             FileUtils.copyFile(srcFile, destFile);
