@@ -1,27 +1,30 @@
 package StepDefs;
 
+import Pages.RegisterPage;
 import cucumber.api.java.en.*;
 
-public class RegistrationStepDef {
+public class RegistrationStepDef extends Base{
+
+    RegisterPage page;
 
     @Given("^Chrome Browser is opened$")
-    public void chrome_Browser_is_opened()  {
-
+    public void chrome_Browser_is_opened() {
+        openBrowser();
     }
 
     @Then("^User is On Parabank Website$")
     public void user_is_On_Parabank_Website() {
-
+        page.verifyHomepage();
     }
 
     @Given("^Register button is present$")
     public void register_button_is_present()  {
-
+        page.verifyRegisterButtonPresent();
     }
 
     @When("^User clicks on it$")
     public void user_clicks_on_it()  {
-
+        page.clickRegisterButtonOnHomePg();
     }
 
     @Then("^Register form gets generated$")
@@ -42,6 +45,7 @@ public class RegistrationStepDef {
     @Then("^User gets logged in$")
     public void user_gets_logged_in()  {
 
+        tearDown();
     }
 
 
