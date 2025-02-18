@@ -10,6 +10,7 @@ public class RegistrationStepDef extends Base{
     @Given("^Chrome Browser is opened$")
     public void chrome_Browser_is_opened() {
         openBrowser();
+        loadProperties();
     }
 
     @Then("^User is On Parabank Website$")
@@ -29,12 +30,12 @@ public class RegistrationStepDef extends Base{
 
     @Then("^Register form gets generated$")
     public void register_form_gets_generated()  {
-
+        page.IsRegistrationFormGenerated();
     }
 
     @When("^User fills the form$")
-    public void user_fills_the_form()  {
-
+    public void user_fills_the_form(){
+        page.fillRegistrationForm();
     }
 
     @When("^Click on Register$")
@@ -44,7 +45,6 @@ public class RegistrationStepDef extends Base{
 
     @Then("^User gets logged in$")
     public void user_gets_logged_in()  {
-
         tearDown();
     }
 
