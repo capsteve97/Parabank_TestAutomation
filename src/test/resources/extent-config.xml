@@ -1,0 +1,6 @@
+<configuration>
+    <reportName>ParaBank Test Automation Report</reportName>
+    <documentTitle>Test Report</documentTitle>
+    <theme>standard</theme>
+    <reportPath>target/extent-reports/extent-report.html</reportPath>
+</configuration>

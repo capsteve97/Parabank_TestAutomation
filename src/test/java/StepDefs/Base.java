@@ -1,4 +1,5 @@
 package StepDefs;
+import ExtentReport.ExtentTestManager;
 import org.apache.commons.io.FileUtils;
 import org.openqa.selenium.*;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -37,6 +38,7 @@ public class Base {
         // Copy the screenshot to the destination file
         try {
             FileUtils.copyFile(srcFile, destFile);
+            ExtentTestManager.getTest().addScreenCaptureFromPath(destFile.getAbsolutePath());
         } catch (IOException e) {
             e.printStackTrace();
         }
